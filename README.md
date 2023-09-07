@@ -37,10 +37,16 @@ proces that was waited on. Lastly, the bglist function will
 print all process that is running or haven't been waited on by 
 iterating through the linked list of bg process.
 
-If the command is none of the mentioned functions, it will take in
+If the command is none of the functions mentioned above, it will take in
 the argument of that command line and first check if it is being 
 executed as a background process or not. If it is a bg process, we
 fork out a child process and insert its pid into the bglist as 
-the parent and continue  
-
+the parent and continue taking command lines. If it is not a bg
+process, the shell would fork a child process and execute the file with 
+that child process. In this case, the parent process will wait for the child 
+to finish execution to clean up that process and then continue 
+taking commands. In both cases, piping are taken care of by first 
+identify the in file and out file specified in the command line and 
+then modify the file descriptors of the provided file to be either the 
+file writing into, reading out of, or the file to print out errors to.
 
