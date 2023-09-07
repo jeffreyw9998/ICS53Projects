@@ -1,0 +1,37 @@
+==22975== Memcheck, a memory error detector
+==22975== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==22975== Using Valgrind-3.13.0 and LibVEX; rerun with -h for copyright info
+==22975== Command: ./bin/53shell
+==22975== Parent PID: 347
+==22975== 
+==22975== Invalid free() / delete / delete[] / realloc()
+==22975==    at 0x4C32D3B: free (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==22975==    by 0x10A2A0: free_job (in /root/ics53/hw3/bin/53shell)
+==22975==    by 0x10A6CC: removeZombies (in /root/ics53/hw3/bin/53shell)
+==22975==    by 0x10AAB7: main (in /root/ics53/hw3/bin/53shell)
+==22975==  Address 0x56ce320 is 0 bytes inside a block of size 43 free'd
+==22975==    at 0x4C32D3B: free (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==22975==    by 0x10A6BD: removeZombies (in /root/ics53/hw3/bin/53shell)
+==22975==    by 0x10AAB7: main (in /root/ics53/hw3/bin/53shell)
+==22975==  Block was alloc'd at
+==22975==    at 0x4C31B0F: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==22975==    by 0x5124AF9: strdup (strdup.c:42)
+==22975==    by 0x10A167: parse (in /root/ics53/hw3/bin/53shell)
+==22975==    by 0x10A2EE: validate_input (in /root/ics53/hw3/bin/53shell)
+==22975==    by 0x10AAD0: main (in /root/ics53/hw3/bin/53shell)
+==22975== 
+==22975== 
+==22975== HEAP SUMMARY:
+==22975==     in use at exit: 130,376 bytes in 196 blocks
+==22975==   total heap usage: 428 allocs, 234 frees, 160,416 bytes allocated
+==22975== 
+==22975== LEAK SUMMARY:
+==22975==    definitely lost: 117 bytes in 4 blocks
+==22975==    indirectly lost: 0 bytes in 0 blocks
+==22975==      possibly lost: 0 bytes in 0 blocks
+==22975==    still reachable: 130,259 bytes in 192 blocks
+==22975==         suppressed: 0 bytes in 0 blocks
+==22975== Rerun with --leak-check=full to see details of leaked memory
+==22975== 
+==22975== For counts of detected and suppressed errors, rerun with: -v
+==22975== ERROR SUMMARY: 2 errors from 1 contexts (suppressed: 0 from 0)
