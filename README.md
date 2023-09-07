@@ -26,4 +26,21 @@ is finish its execution.
 Then in the actual shell, we will continuously prompt for user
 inputs and parse it to be a valid input(which is a function 
 given to us), and then we check if it was any of the previously
-stated function(exit, cd, estatus, or bglist)
+stated function(exit, cd, estatus, or bglist). In the exit functionality,
+we would release all child process that it could've have due 
+previous calls and free any other memories the program could 
+have used and then return. In the cd functionality, we would 
+change directory using the chdir function and print out the 
+path of the current working directory using getcwd. The estatus 
+functionlity will print out the exit status of the last child 
+proces that was waited on. Lastly, the bglist function will 
+print all process that is running or haven't been waited on by 
+iterating through the linked list of bg process.
+
+If the command is none of the mentioned functions, it will take in
+the argument of that command line and first check if it is being 
+executed as a background process or not. If it is a bg process, we
+fork out a child process and insert its pid into the bglist as 
+the parent and continue  
+
+
